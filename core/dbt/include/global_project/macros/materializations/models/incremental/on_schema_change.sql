@@ -61,6 +61,9 @@
 
 {% macro sync_column_schemas(on_schema_change, target_relation, schema_changes_dict) %}
 
+  {% set debug_log_message = 'Insidd the sync_column_schemas function in dbt-core' %}
+  {% do log(debug_log_message) %}
+
   {%- set add_to_target_arr = schema_changes_dict['source_not_in_target'] -%}
 
   {%- if on_schema_change == 'append_new_columns'-%}
